@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale="1.0">
+    <title>Blaseball Team Visitor Status</title>
+    <meta property="theme-color" content="#ffffff">
+    <meta property="twitter:card" content="summary">
+    <meta property="og:type" content="website">
+    <meta property="twitter:title" content="Blaseball Team Visitor Status">
+    <meta property="og:title" content="Blaseball Team Visitor Status">
+    <meta property="twitter:description" content="Check what teams are allowing visitors!">
+    <meta property="og:description" content="Check what teams are allowing visitors!">
+    <meta property="description" content="Check what teams are allowing visitors!">
+    <link rel="stylesheet" href="normalize.css">
+    <link rel="stylesheet" href="main.css">
+    <script src="https://twemoji.maxcdn.com/v/latest/twemoji.min.js" crossorigin="anonymous"></script>
+    <script>
+        function emojify(){twemoji.parse(document.body, 
+            {
+                folder: 'svg',
+                ext:'.svg',
+                callback: function(icon, options, variant) {
+                    switch ( icon ) {
+                        case 'a9':      // © copyright
+                        case 'ae':      // ® registered trademark
+                        case '2122':    // ™ trademark
+                            return false;
+                    }
+                    return ''.concat(options.base, options.size, '/', icon, options.ext);
+                }
+            });
+        }
+    </script>
+</head>
+<body onload="emojify()">
+    <h1>Team Visitor Status</h1>
+    <div class="content">
+        {% for team in teams%}
+        <div class="team">
+            <div class="status {{team.status}}">{{team.emoji}}</div>
+            <div class="name">{{team.name}}</div>
+            <div class="description">{{team.desc}}</div>
+        </div>
+        {% endfor %}
+    </div>
+</body>
+</html>

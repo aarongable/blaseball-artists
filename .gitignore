@@ -1,0 +1,4 @@
+creds.json
+.env
+.vscode
+node_modules

@@ -1,0 +1,130 @@
+@import url('https://fonts.googleapis.com/css2?family=Lora&display=swap');
+
+
+*{
+    box-sizing: border-box;
+}
+
+html, body{
+    height: 100%;
+}
+
+body{
+    background-color: black;
+    color: white;
+    font-family: "Lora","Courier New",monospace,serif;
+}
+
+.content{
+    padding: 3em 0;
+    display: grid;
+    grid-template-columns: repeat(1, 1fr);
+    /* grid-template-rows: repeat(4, 1fr); */
+    gap: 1em;
+    width: 90%;
+    /* height: 90%; */
+    margin: auto;
+    align-self: center;
+    align-items: center;
+    align-content: center;
+    justify-content: center;
+    justify-items: center;
+}
+
+.team{
+    /* border: 2px solid white; */
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: repeat(4, 1fr);
+    grid-template-areas: 
+        "i t t t"
+        "d d d d"
+        "d d d d";
+    padding: 20px;
+    border-radius: 5px;
+    align-content: center;
+    background-color: #131313;
+    width: 280px;
+    height: 200px;
+    font-size: 1.5em;
+}
+
+.status{
+    grid-area: i;
+    border-radius: 25px;
+    margin: 3px;
+    text-align: center;
+    padding: 3px;
+    font-size: 1.5em;
+    width: 1em;
+    height: 1em;
+    display: flex;
+    align-items:center;
+    justify-content:center;
+}
+.name{
+    grid-area: t;
+    display: flex;
+    text-align: center;
+    align-items:center;
+    justify-content:center;
+}
+.description{
+    /* border-top: 1px solid white; */
+    display: flex;
+    padding-top: .1em;
+    margin-top: .1em;
+    grid-area: d;
+    word-wrap: anywhere;
+    text-align: center;
+    align-items:center;
+    justify-content:center;
+    font-size: 0.8em;
+}
+
+.green{
+    background-color: #33ff33;
+}
+.yellow{
+    background-color: #ffff33;
+}
+.red{
+    background-color: #ff3333;
+}
+
+h1{
+    text-align: center;
+    margin-bottom: 0;
+}
+
+img.emoji {
+    height: 1em;
+    width: 1em;
+    margin: 0 .05em 0 .1em;
+    vertical-align: -0.1em;
+ }
+
+@media only screen and (min-width: 600px){
+    .content{
+        grid-template-columns: repeat(2, 1fr);
+        /* gap: .5em; */
+    }
+}
+
+@media only screen and (min-width: 900px){
+    .content{
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+@media only screen and (min-width: 1200px){
+    .content{
+        grid-template-columns: repeat(4, 1fr);
+    }
+}
+
+@media only screen and (min-width: 1500px){
+    .content{
+        grid-template-columns: repeat(5, 1fr);
+    }
+}
