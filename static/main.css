@@ -35,17 +35,16 @@ body{
     /* border: 2px solid white; */
     display: grid;
     grid-template-columns: repeat(4, 1fr);
-    grid-template-rows: repeat(4, 1fr);
+    grid-template-rows: 1fr auto;
     grid-template-areas: 
         "i t t t"
-        "d d d d"
         "d d d d";
     padding: 20px;
     border-radius: 5px;
     align-content: center;
     background-color: #131313;
     width: 280px;
-    height: 200px;
+    min-height: 200px;
     font-size: 1.5em;
 }
 
