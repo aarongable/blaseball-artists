@@ -47,6 +47,7 @@ body{
     background-color: #131313;
     width: 280px;
     min-height: 200px;
+    height: 100%;
     font-size: 1.5em;
 }
 
