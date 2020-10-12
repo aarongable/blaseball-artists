@@ -40,7 +40,7 @@
         {% for team in teams%}
         <div class="team">
             <div class="status {{team.status}}">{{team.emoji}}</div>
-            <div class="name">{{team.name}}</div>
+            <div class="name">{{team.name}} {{team.status}}</div>
             <div class="description">{{team.desc}}</div>
         </div>
         {% endfor %}

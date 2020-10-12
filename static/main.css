@@ -86,13 +86,13 @@ body{
     align-self: flex-start;
 }
 
-.green{
+.✅{
     background-color: #33ff33;
 }
-.yellow{
+.⚠{
     background-color: #ffff33;
 }
-.red{
+.⛔{
     background-color: #ff3333;
 }
 
