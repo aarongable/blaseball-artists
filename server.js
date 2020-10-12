@@ -16,7 +16,7 @@ app.use(express.static("static"));
 
 const { GoogleSpreadsheet } = require("google-spreadsheet");
 const doc = new GoogleSpreadsheet(process.env.SHEET_ID);
-doc.useServiceAccountAuth(require("./creds.json"));
+doc.useApiKey(process.env.API_KEY);
 const NodeCache = require("node-cache");
 var teamCache = new NodeCache();
 
