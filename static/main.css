@@ -121,6 +121,7 @@ img.emoji {
     height: 1em;
     width: 1em;
     vertical-align: -0.1em;
+    margin: 0 6px;
  }
 
 @media only screen and (min-width: 600px){
