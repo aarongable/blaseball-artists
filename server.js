@@ -36,7 +36,8 @@ setInterval(updateCache,30000);
 (async ()=>{
     await doc.loadInfo();
     await updateCache();
-    app.listen(8010, () => {
-        console.log("Ready");
+    let port = process.env.PORT ?? 8000;
+    app.listen(port, () => {
+        console.log("Ready on ",port);
     });
 })();
