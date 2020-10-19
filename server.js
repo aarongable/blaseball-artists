@@ -21,6 +21,7 @@ const NodeCache = require("node-cache");
 var teamCache = new NodeCache();
 
 app.get("/",async (req, res)=>{
+    console.log("req");
     res.render("index.html", {teams: teamCache.get("rows")});
 });
 
@@ -38,6 +39,6 @@ setInterval(updateCache,30000);
     await updateCache();
     let port = process.env.PORT ?? 8000;
     app.listen(port, () => {
-        console.log("Ready on ",port);
+        console.log("Ready on",port);
     });
 })();
