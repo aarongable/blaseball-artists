@@ -28,8 +28,7 @@ async function updateCache(){
     if(process.env.NODE_ENV == "DEV") console.log(new Date()+": Updated Cache");
     let sheet = doc.sheetsByIndex[0];
     let rows = await sheet.getRows({offset:0});
-    console.log(rows);
-    teamCache.set("rows",rows.map(r => {return {name: r.Name, status: r.Status.toLowerCase(), emoji: r.Emoji, desc: r.Description.replace(/\n/g,"<br>")};}));
+    teamCache.set("rows",rows.map(r => {return {name: r.Name, status: r.Status.toLowerCase(), emoji: r.Emoji, desc: r.Description?.replace(/\n/g,"<br>")??"No Description"};}));
 }
 
 setInterval(updateCache,30000);
