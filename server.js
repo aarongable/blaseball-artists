@@ -15,8 +15,8 @@ app.set("view engine", "liquid");
 app.use(express.static("static"));
 
 const { GoogleSpreadsheet } = require("google-spreadsheet");
-const doc = new GoogleSpreadsheet(process.env.SHEET_ID);
-doc.useApiKey(process.env.API_KEY);
+// const doc = new GoogleSpreadsheet(process.env.SHEET_ID);
+// doc.useApiKey(process.env.API_KEY);
 const NodeCache = require("node-cache");
 var teamCache = new NodeCache();
 
@@ -37,7 +37,7 @@ app.get("/",async (req, res)=>{
 (async ()=>{
     // await doc.loadInfo();
     // await updateCache();
-    app.listen(process.env.PORT ?? 8000, () => {
-        console.log("Ready");
-    });
 })();
+app.listen(process.env.PORT ?? 8000, () => {
+    console.log("Ready");
+});
