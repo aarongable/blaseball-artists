@@ -25,18 +25,18 @@ app.get("/",async (req, res)=>{
     // res.render("index.html", {teams: teamCache.get("rows")});
 });
 
-async function updateCache(){
-    if(process.env.NODE_ENV == "DEV") console.log(new Date()+": Updated Cache");
-    let sheet = doc.sheetsByIndex[0];
-    let rows = await sheet.getRows({offset:0});
-    teamCache.set("rows",rows.map(r => {return {name: r.Name, status: r.Status.toLowerCase(), emoji: r.Emoji, desc: r.Description?.replace(/\n/g,"<br>")??"No Description"};}));
-}
+// async function updateCache(){
+//     if(process.env.NODE_ENV == "DEV") console.log(new Date()+": Updated Cache");
+//     let sheet = doc.sheetsByIndex[0];
+//     let rows = await sheet.getRows({offset:0});
+//     teamCache.set("rows",rows.map(r => {return {name: r.Name, status: r.Status.toLowerCase(), emoji: r.Emoji, desc: r.Description?.replace(/\n/g,"<br>")??"No Description"};}));
+// }
 
-setInterval(updateCache,30000);
+// setInterval(updateCache,30000);
 
 (async ()=>{
-    await doc.loadInfo();
-    await updateCache();
+    // await doc.loadInfo();
+    // await updateCache();
     app.listen(process.env.PORT ?? 8000, () => {
         console.log("Ready");
     });
