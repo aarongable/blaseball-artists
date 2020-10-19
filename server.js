@@ -21,7 +21,8 @@ const NodeCache = require("node-cache");
 var teamCache = new NodeCache();
 
 app.get("/",async (req, res)=>{
-    res.render("index.html", {teams: teamCache.get("rows")});
+    res.send("AAA");
+    // res.render("index.html", {teams: teamCache.get("rows")});
 });
 
 async function updateCache(){
