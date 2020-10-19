@@ -15,29 +15,28 @@ app.set("view engine", "liquid");
 app.use(express.static("static"));
 
 const { GoogleSpreadsheet } = require("google-spreadsheet");
-// const doc = new GoogleSpreadsheet(process.env.SHEET_ID);
-// doc.useApiKey(process.env.API_KEY);
+const doc = new GoogleSpreadsheet(process.env.SHEET_ID);
+doc.useApiKey(process.env.API_KEY);
 const NodeCache = require("node-cache");
 var teamCache = new NodeCache();
 
 app.get("/",async (req, res)=>{
-    res.send("AAA");
-    // res.render("index.html", {teams: teamCache.get("rows")});
+    res.render("index.html", {teams: teamCache.get("rows")});
 });
 
-// async function updateCache(){
-//     if(process.env.NODE_ENV == "DEV") console.log(new Date()+": Updated Cache");
-//     let sheet = doc.sheetsByIndex[0];
-//     let rows = await sheet.getRows({offset:0});
-//     teamCache.set("rows",rows.map(r => {return {name: r.Name, status: r.Status.toLowerCase(), emoji: r.Emoji, desc: r.Description?.replace(/\n/g,"<br>")??"No Description"};}));
-// }
+async function updateCache(){
+    if(process.env.NODE_ENV == "DEV") console.log(new Date()+": Updated Cache");
+    let sheet = doc.sheetsByIndex[0];
+    let rows = await sheet.getRows({offset:0});
+    teamCache.set("rows",rows.map(r => {return {name: r.Name, status: r.Status.toLowerCase(), emoji: r.Emoji, desc: r.Description?.replace(/\n/g,"<br>")??"No Description"};}));
+}
 
-// setInterval(updateCache,30000);
+setInterval(updateCache,30000);
 
 (async ()=>{
-    // await doc.loadInfo();
-    // await updateCache();
+    await doc.loadInfo();
+    await updateCache();
+    app.listen(8010, () => {
+        console.log("Ready");
+    });
 })();
-app.listen(process.env.PORT ?? 8000, () => {
-    console.log("Ready");
-});
