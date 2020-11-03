@@ -3,15 +3,15 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Blaseball Team Visitor Status</title>
+    <title>Blaseball Artist Commission Status</title>
     <meta property="theme-color" content="#ffffff">
     <meta property="twitter:card" content="summary">
     <meta property="og:type" content="website">
-    <meta property="twitter:title" content="Blaseball Team Visitor Status">
-    <meta property="og:title" content="Blaseball Team Visitor Status">
-    <meta property="twitter:description" content="Check what teams are allowing visitors!">
-    <meta property="og:description" content="Check what teams are allowing visitors!">
-    <meta property="description" content="Check what teams are allowing visitors!">
+    <meta property="twitter:title" content="Blaseball Artist Commission Status">
+    <meta property="og:title" content="Blaseball Artist Commission Status">
+    <meta property="twitter:description" content="Check what artists are open for commissions!">
+    <meta property="og:description" content="Check what artists are open for commissions!">
+    <meta property="description" content="Check what artists are open for commissions!">
     <link rel="stylesheet" href="normalize.css">
     <link rel="stylesheet" href="main.css">
     <script src="https://twemoji.maxcdn.com/v/latest/twemoji.min.js" crossorigin="anonymous"></script>
@@ -34,14 +34,13 @@
     </script>
 </head>
 <body onload="emojify()">
-    <h1>Team Visitor Status</h1>
-    <p><a href="https://discordapp.com/channels/706414667958059078/739988064847527986/762452278401433602" target="_blank" rel="noreferrer noopener">Info on team hopping</a></p>
+    <h1>Artist Commission Status</h1>
     <div class="content">
-        {% for team in teams%}
-        <div class="team">
-            <div class="status {{team.status}}">{{team.emoji}}</div>
-            <div class="name">{{team.name}}  {{team.status}}</div>
-            <div class="description">{{team.desc}}</div>
+        {% for artist in artists%}
+        <div class="artist">
+            <div class="status {{artist.status}}">{{artist.emoji}}</div>
+            <div class="name"><a href="{{artist.link}}">{{artist.name}}</a> {{artist.status}}</div>
+            <div class="description">{{artist.desc}}</div>
         </div>
         {% endfor %}
     </div>
